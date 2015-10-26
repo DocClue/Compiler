@@ -1,6 +1,9 @@
-Base type: uint
-That’s it.
-Unsigned int. Also works as a bool.
+Base type: 
+int32
+uint32
+float
+char
+<pointers>
 
 Preprocessor stuff:
 #define macro thing
