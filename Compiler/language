@@ -1,0 +1,123 @@
+Base type: uint
+That’s it.
+Unsigned int. Also works as a bool.
+
+Preprocessor stuff:
+#define macro thing
+#define macro(ans) thing
+#ifdef macro
+#endif
+#ifndef macro
+#undef macro thing
+#include file
+
+Language keywords
+uint
+void
+struct
+if
+else
+for
+while
+new
+virtual
+return
+template
+public
+private
+static
+
+Function definition:
+ret-type function-name(params)
+{
+    code…
+}
+
+looks for function main().
+
+Operator definitions:
+Example for some class:
+ret-type operator[ this = arg1 ] (arg1);
+Then, if we have a variable of name a and parameters of name b, we call it with 
+a = b;
+-Operator precedence : left to right. Use parentheses if you want orders.
+So how would you index with two variables?
+ret operator[ this[arg1, arg2] ] (arg1, arg2);
+so now we can do var[a, b];
+Or some weird definitions:
+ret operator[ this = arg1 : arg2 ~ arg3 ] (arg1, arg2, arg3);
+and that is called like:
+var = a : b ~ c;
+-How do we check if an operator is called?
+We read a line like this: a.func(b = c);
+We see an object named “a”. We check all operators of a. Let’s say it has operator[ this =  param ] (param); defined.
+Since the next non-whitespace character after the a is not an = (the first non-whitespace character after the this in the operator), it fails. So we see a “.”, which means a function is called. func takes in something. We pass is “b = c”, so we need to evaluate “b = c”. Well, now we check operators on b. If we find one called operator[this=arg](arg); then we call that function and use the return for func.
+-Operator limitations:
+An operator definition cannot have “(“, “)”, or “;” in it. Yes, you can have operator[ this { args } ](type args); which is really weird. a { 5 } is valid. Also, numbers are not allowed.
+
+class and type definitions:
+class name
+{
+    type var1;
+    type var2;
+    ret-type func1();
+    ret-type func2();
+    ret-type operator[ this [arg, arg2] ] (type arg, type arg2);
+    [destructor];
+    [constructor](args...);
+}
+Defines the class with 2 variables, 2 functions, and an operator.
+
+Example code:
+class foo
+{
+    uint a;
+    uint b;
+    uint operator[ this[arg1, arg2] ] (uint arg1, uint arg2);
+}
+void main()
+{
+    foo f;
+    f[1+3, 7];
+}
+The f indexing operator is matched by starting with the f, searching for an operator. After the this, there is a [ and after the f there is a [. Next, we have an argument. We ignore that for now. After arg1, we have a ,. So we take everything between the [ and the ,. It’s 1 + 3, which evaluates to 4. Then, we have another argument followed by a ]. So we go from the , to the ] and find 7. Now we call the operator with 4 and 7.
+Miscalling the operator:
+class foo
+{
+    uint a;
+    uint b;
+    uint operator[ this[arg1, arg2] ] (uint arg1, uint arg2);
+}
+void main()
+{
+    foo f;
+    f[123], abc];
+}
+Here we have a miscalled operator. As the first parameter, we get 123] which is not a valid uint.
+As such, the operator is not called. Now no operators are called.
+since the line is dealing with a foo and we can’t do anything with the foo, the line generates an error.
+-Conflicting operators:
+class foo
+{
+    uint a;
+    uint b;
+    uint c;
+    uint operator[this = g = arg](uint arg);
+    uint operator[this = arg](uint arg);
+}
+void main()
+{
+    foo f;
+    foo g;
+    f = g = 7;
+}
+Now we have conflicting operators - do we call the first or second?
+The answer is simple. We choose the first defined operator.
+
+
+
+
+
+
+
+
