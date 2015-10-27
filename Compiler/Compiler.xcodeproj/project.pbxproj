@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39770B9E1BDEC9B000F4D6AB /* Assembler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 39770B9D1BDEC9B000F4D6AB /* Assembler.cpp */; };
 		399E250A1BDADCD600E18C45 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 399E25091BDADCD600E18C45 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		39770B9C1BDEC93A00F4D6AB /* Assembler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Assembler.h; sourceTree = "<group>"; };
+		39770B9D1BDEC9B000F4D6AB /* Assembler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Assembler.cpp; sourceTree = "<group>"; };
+		39770BA21BDED0E500F4D6AB /* commands */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = commands; sourceTree = "<group>"; };
 		399E25061BDADCD600E18C45 /* Compiler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Compiler; sourceTree = BUILT_PRODUCTS_DIR; };
 		399E25091BDADCD600E18C45 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -38,6 +42,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39770B991BDEC91300F4D6AB /* Preprocessor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Preprocessor;
+			sourceTree = "<group>";
+		};
+		39770B9A1BDEC92000F4D6AB /* Assembler */ = {
+			isa = PBXGroup;
+			children = (
+				39770B9C1BDEC93A00F4D6AB /* Assembler.h */,
+				39770B9D1BDEC9B000F4D6AB /* Assembler.cpp */,
+				39770BA21BDED0E500F4D6AB /* commands */,
+			);
+			name = Assembler;
+			sourceTree = "<group>";
+		};
+		39770B9B1BDEC92900F4D6AB /* Compiler */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Compiler;
+			sourceTree = "<group>";
+		};
 		399E24FD1BDADCD600E18C45 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +85,9 @@
 		399E25081BDADCD600E18C45 /* Compiler */ = {
 			isa = PBXGroup;
 			children = (
+				39770B9B1BDEC92900F4D6AB /* Compiler */,
+				39770B9A1BDEC92000F4D6AB /* Assembler */,
+				39770B991BDEC91300F4D6AB /* Preprocessor */,
 				399E25091BDADCD600E18C45 /* main.cpp */,
 			);
 			path = Compiler;
@@ -118,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39770B9E1BDEC9B000F4D6AB /* Assembler.cpp in Sources */,
 				399E250A1BDADCD600E18C45 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +264,7 @@
 				399E250F1BDADCD600E18C45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

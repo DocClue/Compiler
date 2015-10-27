@@ -1,0 +1,19 @@
+Start function named func()
+func:
+    push ebp
+    movl ebp, esp
+
+End function:
+    movl esp, ebp
+    pop ebp
+    ret
+
+Allocate room for a variable (everything is in terms of ints)
+    sub esp, 4 ; The 4 is actually 4 * however many ints we need.
+
+Use passed in variables:
+Note: the first variable is the closest.
+    [ebp+4]
+
+Sample code to add 2 variables:
+    
