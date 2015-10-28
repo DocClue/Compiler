@@ -32,6 +32,7 @@
 		399E25091BDADCD600E18C45 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		7D40C3FB1BE01D2D00070B57 /* PreProc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PreProc.cpp; sourceTree = "<group>"; };
 		7D40C3FF1BE01D5500070B57 /* PreProc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreProc.h; sourceTree = "<group>"; };
+		7DF047761BE15C8500313644 /* language */ = {isa = PBXFileReference; lastKnownFileType = text; path = language; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +92,7 @@
 		399E25081BDADCD600E18C45 /* Compiler */ = {
 			isa = PBXGroup;
 			children = (
+				7DF047761BE15C8500313644 /* language */,
 				39770B9B1BDEC92900F4D6AB /* Compiler */,
 				39770B9A1BDEC92000F4D6AB /* Assembler */,
 				39770B991BDEC91300F4D6AB /* Preprocessor */,
